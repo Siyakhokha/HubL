@@ -1,0 +1,64 @@
+.header-module *,
+.header-module *:after,
+.header-module *:before {
+  box-sizing: border-box;
+}
+
+.header-Inner-container-button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button,
+.button {
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  border: 1px solid #ff5a5f;
+  padding-top: 16px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  padding-left: 40px;
+  width: auto;
+  transition: all 0.3s ease-in-out;
+  font-family: "Nunito Sans", "sans-serif";
+  font-weight: 600;
+}
+
+.carousel-container-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-container.swiper-container-horizontal .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+  height: inherit !important;
+}
+
+.swiper-slide img.logo-image:hover
+{
+  opacity: 0.5;
+}

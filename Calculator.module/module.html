@@ -1,0 +1,114 @@
+{% require_css %}
+  <style>
+    {% scope_css %}      
+    .calculator-container {
+    max-width: {{ module.styles.container.container_width }}px;
+  margin: 5rem auto;
+  text-align: center;
+  {% if module.styles.container.background.background_option == 'gradient' %}
+    {{ module.styles.container.background.background_gradient.css }}
+    {% endif %}
+    background-color: {{ module.styles.container.background.background_color.css }};
+    {{ module.styles.container.background.border.css }}
+        border-radius: {{ module.styles.container.background.radius ~ "px" }};
+    {{ module.styles.container.background.spacing.css }}
+}
+
+    .calculator-inputs-heading {
+      {{ module.styles.container.heading.font.css }}
+      {{ module.styles.container.heading.text_align.css }};
+      {{ module.styles.container.heading.spacing.css }}
+    }
+ 
+    .calc-field input {
+      {{ module.styles.container.inputs.font.css }}
+      {{ module.styles.container.inputs.text_align.css }};
+      {{ module.styles.container.inputs.border.css }}
+      border-radius: {{ module.styles.container.inputs.radius ~ "px" }};
+      {{ module.styles.container.inputs.padding.css }}
+    }
+
+    .calculator-button {
+      {{ module.styles.container.button.font.css }};
+      background-color: {{ module.styles.container.button.background_color.css }};
+      {{ module.styles.container.button.border.css }}
+      border-radius: {{ module.styles.container.button.border_radius ~ "px" }};
+      {{ module.styles.container.button.spacing.css }};
+      margin: 0 0.2rem;
+      cursor:pointer;
+    }
+    .calculator-button:hover {
+    background-color: {{ module.styles.container.button.background_color_on_hover.color }};
+     color:{{ module.styles.container.button.text_color_on_hover.css }}
+    }
+    .calculator-outputs {
+    {% if module.styles.results.background.background_option == 'gradient' %}
+    {{ module.styles.results.background.background_gradient.css }}
+    {% endif %}
+    background-color: {{ module.styles.results.background.background_color.css }};
+    {{ module.styles.results.background.border.css }}
+        border-radius: {{ module.styles.results.background.radius ~ "px" }};
+    {{ module.styles.results.background.spacing.css }}
+    max-width:{{ module.styles.results.background.width }}px;
+   margin:auto;
+  }
+    .calculator-result-heading {
+      {{ module.styles.results.heading.font.css }}
+      {{ module.styles.results.heading.text_align.css }}
+    }
+ 
+   
+    {% end_scope_css %}
+  </style>
+  {% end_require_css %}
+  <div  class="calculator">
+  <div class="calculator-inputs">
+  <{{ module.form.heading_type }} class="calculator-inputs-heading">{{ module.form.heading }}</{{ module.form.heading_type }}>
+  {% if module.form.description %}
+  <div class="desciption">
+    {{ module.form.description }}
+  </div>
+  {% endif %}
+  </div>
+  <div class="calculator-container">
+		<div>
+      <form class="calculator__form hs-form" id="{{ name }}-calc">
+      {%- for item in module.form.inputs %}
+      <div class="calc-field">
+     
+        <div class="flex-1">
+          <div class="calc-field-input">
+            <input
+             type="text"
+              name="{{ item.field_id }}"
+              id="{{ item.field_id }}"
+              placeholder="0" 
+              autocomplete="off" 
+              readonly
+              aria-invalid="false"
+              class=""
+            />
+          </div>
+        </div>
+      </div>
+      {%- endfor %}
+    </form>
+
+
+		</div class="oprators">
+			<div class="opratorlist">
+      <div class=" calculator-button">+</div>
+      <div class=" calculator-button">-</div>
+				<div class=" calculator-button">*</div>
+        <div class=" calculator-button">/</div>
+			</div>
+	</div>
+<div class="calculator-outputs">
+<div class="result-container">
+<{{ module.results.heading_type }} class="calculator-result-heading">{{ module.results.heading }} : <span id="resultOutput" class="calculator-result--output">0<span></{{ module.results.heading_type }}>
+</div>
+
+<div>
+  </div>
+
+
